@@ -1,18 +1,34 @@
-<p id="melding"></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 2</title>
+</head>
+<body>
+    <p id="melding"></p>
 
-<script>
+    <script>
+    //Fil manglet "doctype html" i starten, som trengs for at nettleseren skal tolke koden riktig
+
     //Vi har hentet brukerinformasjon, og lagret navent til brukeren i en variabel kalt user_name
-    const user_name = "Marius
+    
+    const user_name = "Marius" /* Manglet et kaninøre for å avslutte strengen  */
 
     //Vi har hentet fødselsåret til brukeren og lagret det i variabelen user_birthyear
-    constt user_birtyear = 1983
+    
+    const user_birthyear = 1983 /* Variabelen brukt har en skrivefeil det skal stå "const" ikke "constt" */ 
 
     //Vi regner ut alder ved å ta året vi er i minus fødselsår, og lagrer svaret i en ny variabel kalt age
-    const age = 2025 -user=birthyear
+    
+    const age = 2025 - user_birthyear /* Nok en skrivefeil i variabelen "user=birthyear" hvis det skulle være _ ikke ett = */
 
     //Så lager vi en tekst for utskrift ved hjelpt av konkatenering
-    const utskrift = "Hei " user_name + " (" + age + "år)";
+    const utskrift = "Hei " + user_name + " (" + age + "år)"; /* Mellom "Hei " og user_name manglet det ett pluss tegn */
 
     //...og vi skriver den ut til elementet med id melding
     document.getElementById("melding").innerHTML = utskrift;
 </script>
+    
+</body>
+</html>
