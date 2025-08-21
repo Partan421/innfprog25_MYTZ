@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="average"></p>
+
+    <script>
+        let far = 37 /* Alder til far */
+        let mor = 32 /* Alder til mor */
+        let datter = 7 /* Alder til datter */
+        let sønn = 2 /* Alder til sønn */
+
+        /* Regne ut gjennomsnittlig alder i familien */
+        let gjennomsnittAlder = (far + mor + datter + sønn) /4
+        
+        console.log(gjennomsnittAlder)
+
+        document.getElementById("average").innerHTML = gjennomsnittAlder
+    </script>
+    
+</body>
+</html>
