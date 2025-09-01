@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Cheat sheet</title>
+ </head>
+ <body>
+    <ul id="profiles"></ul>
+    <script>
+        
+      const lecturers = [
+        {
+            name: "Marius Akerberk",
+            office: "D1-016",
+            email: "toremake@hiof.no",
+            birthyear: 1983,
+
+        },
+        {
+            name: "Daniela Blauhut",
+            office: "D1-015",
+            email: "danielb@hiof.no",
+            birthyear: 1977,
+
+        },
+        {
+            name: "Ann-Charlott Karlsen",
+            office: "D1-062",
+            email: "ackarlse@hiof.no",
+            birthyear: 1992,
+
+        },
+        {
+            name: "Ole Edvard Ørebek",
+            office: "D1-061A",
+            email: "oledvo@hiof.no",
+            birthyear: 1993,
+
+        },
+        {
+            name: "Thor Andreas Holberg Murtnes-Hatlestas",
+            office: "Hjemmekontor",
+            email: "thoraho@hiof.no",
+            birthyear: 1990,
+
+        },
+      ]  
+        
+        
+      const profiles = document.getElementById("profiles")
+
+    //   lecturers.map(lecturer => {
+    //     profiles.innerHTML += `
+    //     <li>
+    //         <h3>${lecturer.name}</h3>
+    //         <span>Alder: ${2025 - lecturer.birthyear}</span>
+    //         <p>Kontor: ${lecturer.office}</p>
+    //         <a href="mailto:${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
+                
+                
+    //             </li>`
+    //     console.log(lecturer)
+    //   })
+
+      lecturers.filter(lec => lec.birthyear >= 1990).map(lecturer => {
+        profiles.innerHTML += `
+        <li>
+            <h3>${lecturer.name}</h3>
+            <span>Alder: ${2025 - lecturer.birthyear}</span>
+            <p>Kontor: ${lecturer.office}</p>
+            <a href="mailto:${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
+                
+                
+                </li>`
+      } )
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*const handleliste = ["Middag","Brød", "Melk", "Egg", "Bacon"]
+        console.log("Handleliste",handleliste)
+
+        const produkter = [
+            {
+                id: "1",
+                name:"Pokemon",
+                year: 1996,
+            },
+            {
+                id: "2",
+                name: "Valheim",
+                year: 2021,
+            },
+            {
+                id: "3",
+                name: "Red Dead Redemption 2",
+                year: 2018,
+            }
+        ]
+
+        console.log("Produktliste", produkter)
+
+          produkter.map((prod) => {
+            console.log(prod.name)
+            console.log(prod.year)
+            console.log(prod.id)
+          })*/  
+
+
+    </script>
+ </body>
+ </html>
