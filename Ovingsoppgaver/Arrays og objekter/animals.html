@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Øvingsoppgave 1</title>
+    <title>Øvingsoppgave 2</title>
 </head>
 <body>
     <p id="utskrift"></p>
@@ -11,7 +11,9 @@
     <script>
         const dyr = ["Katt", "Papegøye", "Tamrotte", "Ilder", "Påfugl", "Gullfisk", "Pinnsvin", "Gorilla", "Hest", "Måke"]
 
-        const setning =`Her er det listet opp noen dyr, for eksempel ${dyr[3]} og ${dyr[7]}`
+        const animals = ["Cat", "Parrot", "Tame Rat", "Ferrets", "Peacock", "Goldfish", "Hegdehog", "Gorilla", "Horse", "Seagull"]
+
+        const setning = `${dyr[2]} er et dyr, på engelsk heter det ${animals[2]}. ${dyr[8]} er ett annet dyr, på engelsk er det ${animals[8]}.`
 
         document.getElementById("utskrift").innerHTML = setning
     </script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvingsoppgave 3</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+    
+    <script>
+        const dyr = ["Katt", "Papegøye", "Tamrotte", "Ilder", "Påfugl", "Gullfisk", "Pinnsvin", "Gorilla", "Hest", "Måke"]
+
+        dyr.push("Ulv","Ugle")
+
+        dyr.sort()
+
+        const antallDyr = dyr.length
+
+        const setningToString = `Antall dyr: ${antallDyr}. ${dyr.toString()}`
+        console.log("SETNING BYGGET MED .toString():")
+        console.log(setningToString)
+
+        document.getElementById("utskrift").innerHTML = setningToString
+    </script>
+</body>
+</html>
