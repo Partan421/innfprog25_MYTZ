@@ -9,15 +9,21 @@
     <ul id="events"></ul>
 
     <script>
-        const years = [1066, 1564, 1455, 1346, 1215]
+        const years = [1066, 1564, 1455, 1346, 1215, 666]
 
         years.sort(function(a, b) {return b - a})
 
         let eventHTML = ""
 
-        years.map((year) => eventHTML += `<li>${year}</li>`)
+        years.map(y => {
+            eventHTML += `
+            <li>${y}</li>
+            `
+        })
 
         document.getElementById("events").innerHTML = eventHTML
+
+        console.log(years)
     </script>
     
 </body>
