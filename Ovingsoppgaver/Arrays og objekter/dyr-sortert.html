@@ -6,7 +6,7 @@
     <title>Øvingsoppgave 3</title>
 </head>
 <body>
-    <p id="utskrift"></p>
+    <p id="antall-dyr"></p>
     
     <script>
         const dyr = ["Katt", "Papegøye", "Tamrotte", "Ilder", "Påfugl", "Gullfisk", "Pinnsvin", "Gorilla", "Hest", "Måke"]
@@ -15,13 +15,11 @@
 
         dyr.sort()
 
-        const antallDyr = dyr.length
+        const antallDyr = ` Det er ${dyr.length} dyr i denne listen. ${dyr.join(", ")}`
 
-        const setningToString = `Antall dyr: ${antallDyr}. ${dyr.toString()}`
-        console.log("SETNING BYGGET MED .toString():")
-        console.log(setningToString)
+        document.getElementById("antall-dyr").innerHTML = antallDyr
 
-        document.getElementById("utskrift").innerHTML = setningToString
+        console.log(dyr)
     </script>
 </body>
 </html>
