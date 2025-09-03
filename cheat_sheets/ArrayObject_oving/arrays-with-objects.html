@@ -9,12 +9,15 @@
     <ul id="profiles"></ul>
     <script>
         
-      const lecturers = [
+      const profiles = document.getElementById("profiles")
+      
+        const lecturers = [
         {
             name: "Marius Akerberk",
             office: "D1-016",
             email: "toremake@hiof.no",
             birthyear: 1983,
+            courses: ["Innføring i programmering", "Kommunikasjonsdesign", "UI Designsprosjekt", "Utvikling av interaktive nettsteder"]
 
         },
         {
@@ -22,6 +25,7 @@
             office: "D1-015",
             email: "danielb@hiof.no",
             birthyear: 1977,
+            courses: ["Designmetoder", "UI Designprosjekt"]
 
         },
         {
@@ -29,6 +33,7 @@
             office: "D1-062",
             email: "ackarlse@hiof.no",
             birthyear: 1992,
+            courses: ["Webutvikling", "Utvikling av interaktive nettsteder"]
 
         },
         {
@@ -36,6 +41,7 @@
             office: "D1-061A",
             email: "oledvo@hiof.no",
             birthyear: 1993,
+            courses: ["Innføring i datasikkerhet"]
 
         },
         {
@@ -43,70 +49,39 @@
             office: "Hjemmekontor",
             email: "thoraho@hiof.no",
             birthyear: 1990,
+            courses: ["Innføring i programmering"]
 
         },
       ]  
         
-        
-      const profiles = document.getElementById("profiles")
+        console.log(lecturers)
 
-    //   lecturers.map(lecturer => {
-    //     profiles.innerHTML += `
-    //     <li>
-    //         <h3>${lecturer.name}</h3>
-    //         <span>Alder: ${2025 - lecturer.birthyear}</span>
-    //         <p>Kontor: ${lecturer.office}</p>
-    //         <a href="mailto:${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
-                
-                
-    //             </li>`
-    //     console.log(lecturer)
-    //   })
-
-      lecturers.filter(lec => lec.birthyear >= 1990).map(lecturer => {
+      lecturers.map(lecturer => {
         profiles.innerHTML += `
         <li>
             <h3>${lecturer.name}</h3>
             <span>Alder: ${2025 - lecturer.birthyear}</span>
             <p>Kontor: ${lecturer.office}</p>
             <a href="mailto:${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
-                
-                
-                </li>`
-      } )
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            <ul>
+            ${lecturer.courses.map(course => {
+              return `<li>${course}</li>`
+            }).join(" ")}  
+            </ul>   
+            </li>`
+      })
+    //     console.log(lecturer)
+    //   })
+
+      // lecturers.filter(lec => lec.birthyear >= 1990).map(lecturer => {
+      //   profiles.innerHTML += `
+      //   <li>
+      //       <h3>${lecturer.name}</h3>
+      //       <span>Alder: ${2025 - lecturer.birthyear}</span>
+      //       <p>Kontor: ${lecturer.office}</p>
+      //       <a href="mailto:${lecturer.email}">Skriv e-post til ${lecturer.name}</a>         
+      //   </li>`
+      // } )
         
         /*const handleliste = ["Middag","Brød", "Melk", "Egg", "Bacon"]
         console.log("Handleliste",handleliste)
