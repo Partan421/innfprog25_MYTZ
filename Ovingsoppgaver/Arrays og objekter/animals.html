@@ -13,7 +13,10 @@
 
         const animals = ["Cat", "Parrot", "Tame Rat", "Ferrets", "Peacock", "Goldfish", "Hegdehog", "Gorilla", "Horse", "Seagull"]
 
-        const setning = `${dyr[2]} er et dyr, på engelsk heter det ${animals[2]}. ${dyr[8]} er ett annet dyr, på engelsk er det ${animals[8]}.`
+        const dyrIndex1 = 2
+        const dyrIndex2 = 7
+
+        const setning = `${dyr[dyrIndex1]} er et dyr, på engelsk heter det ${animals[dyrIndex1]}. ${dyr[dyrIndex2]} er ett annet dyr, på engelsk er det ${animals[dyrIndex2]}.`
 
         document.getElementById("utskrift").innerHTML = setning
     </script>
