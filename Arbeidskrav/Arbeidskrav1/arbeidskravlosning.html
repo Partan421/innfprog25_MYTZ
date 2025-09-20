@@ -34,8 +34,8 @@
             <a href="https://www.flaticon.com/free-icons/user" title="female icons">User icons created by Prosymbols Premium, Freepik, Smashicons, and Vectors Market - found at Flaticon</a>
         </p>
     </footer>
-
-    <scripttt>
+<!--<script> taggen har 3 t som fører til at koden ikke registrerer Javascript-->
+    <script>
         //Variabel with company name
         const company = "Programmeriet"
 
@@ -47,19 +47,24 @@
         ]
 
         //Secret keys to access url and images
-        let images_folder = "img
+        //Det mangler en " etter img noe som fører til at den ikke registerer dette riktig
+        let images_folder = "img"
         let secret_key = 0
         let ak_key
         
         //Turn on or off safeguard to allow system to run
-        const safeguard = false
+        //Grunnet at safeguard var satt til false ville ikke systemet kjøre, ved å endre det til true følger logikken under etter.
+        //Fant ut av dette gjennom console grunnet at i console kom meldingen Image Folder: "imgundefined"
+        const safeguard = true//false
         
         //Control of safeguard to create image folder name
         if(safeguard === true) {
             ak_key = secret_key + 1
         }
         const safe_images_folder = images_folder += ak_key
-        console.logg("Image folder: " + safe_images_folder)
+        
+        //Skrive feil i console.log i form av en ekstra g, fant ut av dette gjennom bruk av console som kom med en error 
+        console.log("Image folder: " + safe_images_folder)
 
         let HTML_employees = ""
 
@@ -71,8 +76,8 @@
                     <p>${e.position} | Kontor: ${e.office}</p>
                     <p>${e.email}</p>
                 </article>`)
-
-                document.getElementbyId("employee_list").innerHTML = HTML_employeeees
+                //Skrivefeil i form av mangel av stor B og for mange e i HTML_employees
+                document.getElementById("employee_list").innerHTML = HTML_employees
         }
 
         //System prints
