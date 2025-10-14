@@ -16,7 +16,7 @@
     <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
     <h2>Problem 3</h2>
     <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
-    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_one"></span></p>
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_two"></span></p>
 
     <script>
         //PROBLEM 1
@@ -25,18 +25,83 @@
         let random_color_code = "#"
         
         //Din kode for å løse problem 1 her.
-        console.log(hexadecimal_characters_array)
+
+        //lage en funksjon for å generere tilfeldig hexkode
+        //Skrive linje for å definere hvor lang hexkoden skal være
+        //Generere hexkode 
+        //Bruke en return for å gi random_color_code den genererte hexkoden
+        //Bruke en document.get... for å skrive koden til id "random_color"  
+
+        function FargeGenerator(){
+        while (random_color_code.length < 7){
+            random_color_code += hexadecimal_characters_array[Math.floor(Math.random() * hexadecimal_characters_array.length)];
+
+        }
+        return random_color_code
+        } 
+        
+        document.getElementById("random_color").textContent = FargeGenerator()
 
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
 
         //Din kode for å løse problem 2 her.
 
+        //Kjøre en if test for å sjekke om array inneholder spesifikt ord, hvis ja, skriv ja til riktig id hvis nei, skriv nei til samme id.
+        //Lage 3 if tester en for hver sjekk
+         if (programming_words.includes("betingelse")){
+            document.getElementById("betingelse_sjekk").textContent = "Ja";
+        } else {
+            document.getElementById("betingelse_sjekk").textContent = "Nei";
+        }
+
+         if (programming_words.includes("algoritme")){
+            document.getElementById("algoritme_sjekk").textContent = "Ja";
+        } else {
+            document.getElementById("algoritme_sjekk").textContent = "Nei";
+        }
+
+         if (programming_words.includes("problemlosning")){
+            document.getElementById("problemlosning_sjekk").textContent = "Ja";
+        } else {
+            document.getElementById("problemlosning_sjekk").textContent = "Nei";
+        }
+
         //PROBLEM 3
         const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //Din kode for å løse problem 3 her.
+
+        //Skrive kode som klarer å telle hvor mange tall er i arrayen
+        //definere variabler som kan brukes for å holde tellingen
+        //Kode som stopper å telle når variabel har samme mengde tall som i array
+        //Kalkulere gjennomsnitt av tall i array
+        //Skrive ut til respektiv span id
+
+        let array1Sum = 0;
+        let array2Sum = 0;
+
+       for(
+            let array1 = 0;
+            array1 < tall_array_en.length;
+            array1 = array1 + 1) {
+            array1Sum = array1Sum + tall_array_en[array1]
+        }
+
+        let average1 = array1Sum / tall_array_en.length;
+
+        for(
+            let array2 = 0;
+            array2 < tall_array_to.length;
+            array2 = array2 + 1) {
+            array2Sum = array2Sum + tall_array_to[array2]
+        }
+
+        let average2 = array2Sum / tall_array_to.length;
+
+        document.getElementById("avg_array_one").textContent = average1 ;
+        document.getElementById("avg_array_two").textContent = average2 ;
     </script>
 </body>
 </html>

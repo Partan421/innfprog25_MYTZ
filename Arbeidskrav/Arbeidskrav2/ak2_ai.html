@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    .main{
+        background-color: #630294;
+    }
+    
+    </style>
 </head>
 <body>
     <h1>Arbeidskrav 2</h1>
@@ -16,23 +22,56 @@
     <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
     <h2>Problem 3</h2>
     <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
-    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_one"></span></p>
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_two"></span></p> <!--Skrivefeil her fikset den fra å stå avg_array_one til two-->
 
     <script>
         //PROBLEM 1
+        // Var ikke kode her, men copilot løste det uten å trenge det. Fikk derfor Copilot til å løse den begge metodene 
+        const hexadecimal_characters = "ABCDEF1234567890"
+        const hexadecimal_characters_array = Array.from(hexadecimal_characters)
+        let random_color_code = "#"
         
         //AI-kode for å løse problem 1 her.
+
+        for (let i = 0; i < 6; i++) {
+            const random_index = Math.floor(Math.random() * hexadecimal_characters_array.length)
+            random_color_code += hexadecimal_characters_array[random_index]
+        }
+
+        document.getElementById("random_color").textContent = random_color_code
+        
+        //function generateRandomHexColor() {
+        //const hex = Math.floor(Math.random() * 16777215).toString(16);
+        //return "#" + hex.padStart(6, "0");
+        //}
+
+        //document.getElementById("random_color").textContent = generateRandomHexColor();
 
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
 
         //AI-kode for å løse problem 2 her.
+        function checkWord(word) {
+        return programming_words.includes(word) ? "Ja" : "Nei";
+        }
 
+        document.getElementById("betingelse_sjekk").textContent = checkWord("betingelse");
+        document.getElementById("algoritme_sjekk").textContent = checkWord("algoritme");
+        document.getElementById("problemlosning_sjekk").textContent = checkWord("problemløsning");
+      
         //PROBLEM 3
         const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //AI-kode for å løse problem 3 her.
+        function calculateAverage(array) {
+        const sum = array.reduce((acc, val) => acc + val, 0);
+        return (sum / array.length).toFixed(2);
+        }
+
+        document.getElementById("avg_array_one").textContent = calculateAverage(tall_array_en);
+        document.getElementById("avg_array_two").textContent = calculateAverage(tall_array_to);
+
     </script>
 </body>
 </html>
