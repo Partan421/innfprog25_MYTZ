@@ -30,7 +30,7 @@
         }
 
         const paddle = {
-            x: 400,
+            x: 300,
             y: 100,
             w: 50,
             h: 100
@@ -55,20 +55,18 @@
                 ball.speedX *= -1
             }
 
-            if(ball.x <= paddle.x && ball.y <= paddle.y + paddle.h){
+            if(ball.x <= paddle.x + paddle.h && ball.y <= paddle.y + paddle.h){
                 ball.speedX *= -1
             }
 
-            if(ball.y <= paddle.y + paddle.h && ball.x <= paddle.x + paddle.w){
-                ball.speedY *= -1
+            if(ball.y <= paddle.y && ball.x <= paddle.x + paddle.w){
+                ball.speedY *= 1
             }
 
             if(ball.y <= paddle.y && ball.x <= paddle.x + paddle.w){
-                ball.speedY *= -1
+                ball.speedY *= 1
             }
-
             
-
             ball.x += ball.speedX
             ball.y += ball.speedY
 
