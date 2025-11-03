@@ -176,6 +176,17 @@
         y: canvas.height / 2
       }
 
+      //Fortran Directions
+
+      const directions = {
+        up : false,
+        down : false,
+        left : false,
+        right : false
+      }
+
+      
+
       const itemTypes = ["variables", "arrays", "loops", "functions", "energydrinks", "bugs"]
 
       function updateStaticUI() {
@@ -208,6 +219,7 @@
         document.getElementById("loops").innerHTML = notebook.loops
         document.getElementById("functions").innerHTML = notebook.functions
       }
+
 
       updateStaticUI()
 
@@ -244,6 +256,33 @@
           // : null
 
           gameConfig.gamePaused = !gameConfig.gamePaused
+        }
+        if (event.code === "ArrowUp"){
+          directions.up = true
+        }
+        if (event.code === "ArrowDown"){
+          directions.down = true
+        }
+        if (event.code === "ArrowLeft"){
+          directions.left = true
+        }
+        if (event.code === "ArrowRight"){
+          directions.right = true
+        }
+      })
+
+      document.addEventListener("keyup", (event) => {
+        if (event.code === "ArrowUp"){
+          directions.up = false
+        }
+        if (event.code === "ArrowDown"){
+          directions.down = false
+        }
+        if (event.code === "ArrowLeft"){
+          directions.left = false
+        }
+        if (event.code === "ArrowRight"){
+          directions.right = false
         }
       })
 
@@ -312,7 +351,22 @@
       window.requestAnimationFrame
 
       function drawElements() {
-        // ctx.clearRect(0, 0, canvas.width, canvas.height)
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Move Fortran
+
+      if (directions.up === true) {
+        fortran.y -= fortran.speed;
+      }
+      if (directions.down === true) {
+        fortran.y += fortran.speed;
+      }
+      if (directions.left === true) {
+        fortran.x -= fortran.speed;
+      }
+      if (directions.right === true) {
+        fortran.x += fortran.speed;
+      }
 
         if(fortranLoaded = true){
           ctx.drawImage(fortranImage, fortran.x, fortran.y)
@@ -346,6 +400,18 @@
       }
 
       drawElements()
+
+      // Hvilken brukerinteraksjon må vi ta hensyn til i koden?
+      // - Tastatur-input
+      // Hvilke deler av koden vår kan vi bruke i brukerinteraskjonen?
+      // - addEventListener
+      // Hva skal endres i koden når vi kjenner (eller hører) brukerinteraksjonen?
+      // - Retnings-boolean
+      // Når skal endringen starte?
+      // - Når retnings-boolean er sann(?).
+      // - Ved tastetrykk= keydown?
+      // Når skal endringen stoppe?
+      // - Opphevet tastetrykk- keyup
     </script>
   </body>
 </html>
