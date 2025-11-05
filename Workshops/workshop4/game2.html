@@ -292,9 +292,7 @@
       function drawItem(type, x, y) {
         let itemImage = new Image()
         itemImage.src = `icons/${type}.svg`
-        itemImage.onload = () => {
           ctx.drawImage(itemImage, x, y)
-        }
         if (type != "bug") {
           ctx.beginPath()
           ctx.arc(x, y, 10, 0, 2 * Math.PI)
