@@ -154,7 +154,7 @@
         playerName: "Thor",
         energy: 10,
         points: 4000,
-        duration: 30,
+        duration: 0,
         gamePaused: false,
         pauseText: "Press P to pause"
         }
@@ -183,8 +183,14 @@
             right: false,
         }
 
-        const itemTypes = ["variables", "arrays", "loops", "functions", "energydrinks", "bugs"]
+        const itemTypes = ["variable", "array", "loop", "function", "energydrink", "bug"]
 
+        const items = [
+            {type: "variable", x: 500, y: 40, lifetime: 10, collected: false},
+            {type: "array", x: 450, y: 200, lifetime: 8, collected: false},
+            {type: "loop", x: 200, y: 100, lifetime: 1000, collected: false},
+            {type: "bug", x: 300, y: 10, lifetime: 0, collected: false},
+        ]
         function updateStaticUI() {
         // Print playerinfo to HTML
         // Vi kan lagre HTML-elementer i variabler for lettere testing/kontroll i logg.
@@ -309,7 +315,6 @@
 
         updateConfigValue(notebook, "variables", 10)
         updateConfigValue(notebook, "arrays", 40)
-        updateConfigValue(gameConfig, "energy", 100)
 
 
         let fortranLoaded = false
@@ -320,7 +325,7 @@
         console.log("Fortran image loaded") 
         }
 
-        function drawItem(type, x, y) {
+        function drawItem(type, x, y, lifetime) {
         let itemImage = new Image()
         itemImage.src = `icons/${type}.svg`
             ctx.drawImage(itemImage, x, y)
@@ -332,10 +337,24 @@
             ctx.fill()
             ctx.fillStyle = "white"
             ctx.font = "11px Verdana"
-            ctx.fillText("99", x - 7, y + 4)
+            ctx.fillText(lifetime, x - 7, y + 4)
             ctx.closePath()
         }
         }
+
+        setInterval(() => {
+            if(!gameConfig.gamePaused){
+            gameConfig.duration++
+            console.log(gameConfig.duration)
+            
+            updateSingleStaticUI("duration", gameConfig.duration)
+            
+            items.forEach((item) => {
+                item.lifetime--
+            })
+            }
+        }, 1000)
+
     
         requestAnimationFrame = window.mozRequestAnimationFrame ||
         window.msRequestAnimationFrame ||
@@ -349,6 +368,18 @@
         directions.down ? fortran.y += fortran.speed : null
         directions.left ? fortran.x -= fortran.speed : null
         directions.right ? fortran.x += fortran.speed : null
+
+        if(fortran.x > canvas.width - (fortranImage.width /2) || 
+            fortran.x <= 0 - (fortranImage.width /2)|| 
+            fortran.y <= 0 - (fortranImage.height /2) || 
+            fortran.y > canvas.height - (fortranImage.height /2)
+        ){
+            fortran.x = canvas.width/2
+            fortran.y = canvas.height/2
+            gameConfig.energy--
+            
+            updateSingleStaticUI("energy", gameConfig.energy)
+        }
 
         if(fortranLoaded = true){
             ctx.drawImage(fortranImage, fortran.x, fortran.y)
@@ -374,8 +405,10 @@
             ctx.fillText(gameConfig.pauseText, canvas.width - 143, canvas.height - 7)
             ctx.closePath()
 
-            drawItem("function", 130, 150)
-            drawItem("bug", 500, 500)
+            
+            items.filter((item) => item.lifetime > 0 || item.type === "bug").map((item) => {
+                drawItem(item.type, item.x, item.y, item.lifetime,)
+            })
 
 
         requestAnimationFrame(drawElements)
