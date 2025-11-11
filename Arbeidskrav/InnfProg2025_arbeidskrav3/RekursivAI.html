@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekursive funksjoner i JavaScript</title>
+</head>
+<body>
+    <h1>Rekursiv utskrift av tall</h1>
+    <ul id="numberList">
+        <li>Tall vil skrives ut her.</li>
+    </ul>
+
+    <script>
+      function numberSelector(n) {
+        const list = document.getElementById("numberList");
+
+        // Sjekk stopp-betingelsen først
+        if (n === 4 || n === 7) {
+          const stopItem = document.createElement("li");
+          stopItem.textContent = `Stoppet ved tallet ${n}`;
+          list.appendChild(stopItem);
+          return; // avslutter rekursjonen
+        }
+
+        // Legg til tallet i listen
+        const item = document.createElement("li");
+        item.textContent = n;
+        list.appendChild(item);
+
+        // Bare kall rekursjonen videre hvis neste tall ≤ 9
+        if (n + 1 <= 9) {
+          numberSelector(n + 1);
+        }
+      }
+
+      // Start rekursjonen fra 1
+      numberSelector(1);
+    </script>
+</body>
+</html>

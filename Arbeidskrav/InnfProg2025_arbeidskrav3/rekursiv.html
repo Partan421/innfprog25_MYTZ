@@ -14,13 +14,41 @@
     <script>
         /*
             Hva er en rekursiv funksjon?
-
-            --Ditt svar her. Husk kilder--
+            Kort fortalt er en rekursiv funksjon en funksjon som kaller på seg selv fram til ett problem har blitt løst. Eks er for eksempel
+            at funksjonen sjekker etter om en variabel har en verdi, hvis variabelen ikke har verdien kjører den funksjonen på nytt fram til
+            variabelen er det den rekursive funksjonen er.
+            
+            Kilde: https://www.programiz.com/javascript/recursion
         */
 
         function numberSelector() {
             // Din kode her
+            // Kode må kunne generere ett tilfeldig tall mellom 1 og 9
+            // Kode må klare å printe ut koden til ett nytt li element
+            // Kode må klare å stoppe hvis tallet 4 eller 7 dukker opp
+            // Kode må klare å starte seg selv hvis tallet 4 eller 7 ikke dukker opp.
+
+            const tilfeldigTall = Math.floor(Math.random() * 9) + 1;
+            const liste = document.getElementById("numberList");
+            const li = document.createElement("li");
+            
+            li.textContent = tilfeldigTall;
+            liste.appendChild(li);
+            
+            if (tilfeldigTall === 4 || tilfeldigTall === 7) {
+                return;
+            }
+            numberSelector();
         }
+        numberSelector();
+
+        /*
+        Kilder:
+        https://www.w3schools.com/jsref/met_document_createelement.asp
+        https://www.w3schools.com/jsref/met_node_appendchild.asp
+        https://www.w3schools.com/jsref/prop_node_textcontent.asp
+        
+        */
     </script>
 </body>
 </html>

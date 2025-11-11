@@ -34,26 +34,30 @@
         function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
             /* Din kode her */
             //Sjekk for hvilke ting som er krysset
-            length = document.getElementById("length").value;
-            includeLowercase = document.getElementById("lowercase").checked;
-            includeUppercase = document.getElementById("uppercase").checked;
-            includeNumbers = document.getElementById("numbers").checked;
-            includeSymbols = document.getElementById("symbols").checked;
+              length = document.getElementById("length").value;
+      includeLowercase = document.getElementById("lowercase").checked;
+      includeUppercase = document.getElementById("uppercase").checked;
+      includeNumbers = document.getElementById("numbers").checked;
+      includeSymbols = document.getElementById("symbols").checked;
 
-            // Bygg tegnsett
-            let chars = "";
-            if (includeLowercase) chars += lowercase;
-            if (includeUppercase) chars += uppercase;
-            if (includeNumbers) chars += numbers;
-            if (includeSymbols) chars += symbols;
+      // Bygg tegnsett
+      let chars = "";
+      if (includeLowercase) chars += lowercase;
+      if (includeUppercase) chars += uppercase;
+      if (includeNumbers) chars += numbers;
+      if (includeSymbols) chars += symbols;
 
-            // Generer passord
-            let pass = "";
-            for (let i = 0; i < length; i++) {
-            let rand = Math.floor(Math.random() * chars.length);
-            pass += chars[rand];
-            }
-            
+      if (chars === "") {
+        document.getElementById("generatedPassword").textContent = "Velg minst ett alternativ!";
+        return;
+      }
+
+      // Generer passord
+      let pass = "";
+      for (let i = 0; i < length; i++) {
+        let rand = Math.floor(Math.random() * chars.length);
+        pass += chars[rand];
+      }
             document.getElementById("generatedPassword").textContent = pass;
         }
     </script>
